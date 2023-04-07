@@ -1,0 +1,1 @@
+<h1>About Svelte Dice</h1>
