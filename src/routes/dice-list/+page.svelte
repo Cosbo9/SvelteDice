@@ -1,20 +1,23 @@
 <ul>
     <li>
-        <a href="dice-list/d4">d4</a>
+        <a href="dice-list/4">4 sided (d4)</a>
     </li>
     <li>
-        <a href="dice-list/d6">d6</a>
+        <a href="dice-list/6">6 sided (d6)</a>
     </li>
     <li>
-        <a href="dice-list/d8">d8</a>
+        <a href="dice-list/8">8 sided (d8)</a>
     </li>
     <li>
-        <a href="dice-list/d10">d10</a>
+        <a href="dice-list/10"> 10 sided (d10)</a>
     </li>
     <li>
-        <a href="dice-list/d12">d12</a>
+        <a href="dice-list/12">12 sided (d12)</a>
     </li>
     <li>
-        <a href="dice-list/d20">d20</a>
+        <a href="dice-list/20">20 sided (d20)</a>
+    </li>
+    <li>
+        <a href="dice-list/custom">Custom range</a>
     </li>
 </ul>
