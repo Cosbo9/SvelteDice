@@ -10,21 +10,14 @@
 
     function handleRoll(rollTimes, minAmount, maxAmount) {
         if (diceId != "custom") {
+            maxAmount = parseInt(diceId, 10)
             maxAmount = diceId;
         }
-        else {
-            maxAmount = 1;
-        }
         resultList = [];
-        maxAmount = parseInt(diceId, 10)
-        console.log("times", rollTimes)
-        console.log("min", minAmount)
-        console.log("max", maxAmount)
         for (let a = 0; a < rollTimes; a++) {
             rollResult = Math.floor(Math.random() * maxAmount + minAmount);
             resultList = [...resultList, rollResult];
         }
-        console.log(resultList)
     }
 </script>
 
