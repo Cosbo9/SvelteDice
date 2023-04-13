@@ -1,24 +1,30 @@
 <script>
     import { page } from '$app/stores'
     let maxAmount = 1;
-    let minAmount = 0;
+    let minAmount = 1;
+    let rollTimes = 1;
     const diceId = $page.params.diceId;
     let rollResult = 0;
     let resultList = [];
     let invalidAmount = false;
 
-    function handleRoll(minAmount, maxAmount) {
-        resultList = [];
-        if (maxAmount > 0) {
-        invalidAmount = false;
-        for (let a = 0; a < maxAmount; a++) {
-        let rollResult = Math.floor(Math.random() * maxAmount + minAmount);
-            resultList = [...resultList, rollResult]
-        }
+    function handleRoll(rollTimes, minAmount, maxAmount) {
+        if (diceId != "custom") {
+            maxAmount = diceId;
         }
         else {
-            invalidAmount = true;
+            maxAmount = 1;
         }
+        resultList = [];
+        maxAmount = parseInt(diceId, 10)
+        console.log("times", rollTimes)
+        console.log("min", minAmount)
+        console.log("max", maxAmount)
+        for (let a = 0; a < rollTimes; a++) {
+            rollResult = Math.floor(Math.random() * maxAmount + minAmount);
+            resultList = [...resultList, rollResult];
+        }
+        console.log(resultList)
     }
 </script>
 
@@ -29,23 +35,18 @@
         <img src="../src/images/d4.png" alt="d4">
     {/if}
     {#if diceId === "6"}
-        rollMax = 6
         <img src="../src/images/d6.png">
     {/if}
     {#if diceId === "8"}
-        rollMax = 8
         <img src="../src/images/d8.png">
     {/if}
     {#if diceId === "10"}
-        rollMax = 10
         <img src="../src/images/d10.png">
     {/if}
     {#if diceId === "12"}
-        rollMax = 12
         <img src="../src/images/d12.png">
     {/if}
     {#if diceId === "20"}
-        rollMax = 20
         <img src="../src/images/d20.png">
     {/if}
     {#if diceId === "custom"}
@@ -56,8 +57,8 @@
 </div>
 <div class="amount">
     <p>select how many dice to roll</p>
-    <input type="number" bind:value={maxAmount}>
-    <button on:click={handleRoll(diceId, maxAmount)}>Roll!</button>
+    <input type="number" bind:value={rollTimes}>
+    <button on:click={handleRoll(rollTimes, minAmount, maxAmount)}>Roll!</button>
     {#if invalidAmount}
         <p>Please enter a valid amount</p>
     {/if}
